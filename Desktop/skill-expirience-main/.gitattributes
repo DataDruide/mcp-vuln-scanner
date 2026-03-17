@@ -1,0 +1,3 @@
+*.js   linguist-language=javascript
+*.mjs  linguist-language=javascript
+*.cjs  linguist-language=javascript
