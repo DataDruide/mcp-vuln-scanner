@@ -7,7 +7,7 @@
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 ![GitHub stars](https://img.shields.io/github/stars/DataDruide/mcp-vuln-scanner)
 
-**AI-powered security scanner for MCP (Model Context Protocol) servers with automatic fixes**
+**AI-powered security scanner for MCP (Model Context Protocol) servers with automatic fixes, secret detection, and multi-channel alerts**
 
 [Installation](#installation) • [Quick Start](#quick-start) • [AI Fix](#ai-fix) • [Commands](#commands) • [Pricing](#pricing)
 
@@ -21,9 +21,10 @@
 |---------|-------------|
 | 🔍 **Dangerous Operations** | Detect command injection, path traversal, SQL injection |
 | 🎭 **Tool Poisoning** | Identify typosquatting, misleading descriptions |
+| 🔑 **Secret Detection** | Find API keys, passwords, tokens in MCP tools |
 | 🤖 **AI-Powered Fixes** | Automatic security fixes with Ollama (free/local), OpenAI, Gemini |
 | 📊 **Multiple Formats** | Console, JSON, HTML (with charts), SARIF (GitHub) |
-| 📢 **Integrations** | Slack, Jira, GitHub Actions, VS Code |
+| 📢 **Multi-Channel Alerts** | Slack, Discord, Email, Jira |
 | 🌐 **Live Scanning** | Scan running MCP servers via HTTP/SSE |
 | 🔐 **Pro/Enterprise** | Ready-to-use licensing system |
 
