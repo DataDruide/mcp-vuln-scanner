@@ -1,0 +1,85 @@
+{
+  "tools": [
+    {
+      "name": "read_file",
+      "description": "Reads a file from the filesystem",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "path": {
+            "type": "string",
+            "description": "Path to the file to read",
+            "pattern": "^[a-zA-Z0-9_/.-]+$",
+            "maxLength": 255
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "execute_command",
+      "description": "Executes a system command",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "The command to execute",
+            "pattern": "^[-a-zA-Z0-9_]+( [-a-zA-Z0-9_]*)*$"
+          }
+        },
+        "required": [
+          "command"
+        ]
+      }
+    },
+    {
+      "name": "database_query",
+      "description": "Runs a SQL query",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sql": {
+            "type": "string",
+            "description": "SQL query to execute"
+          }
+        },
+        "required": [
+          "sql"
+        ]
+      }
+    },
+    {
+      "name": "safe_calculator",
+      "description": "Performs mathematical calculations",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": [
+              "add",
+              "subtract",
+              "multiply",
+              "divide"
+            ],
+            "description": "The operation to perform"
+          },
+          "a": {
+            "type": "number"
+          },
+          "b": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "operation",
+          "a",
+          "b"
+        ]
+      }
+    }
+  ]
+}
