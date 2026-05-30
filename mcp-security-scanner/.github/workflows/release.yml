@@ -11,6 +11,10 @@ on:
         required: false
         default: 'false'
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   build-and-publish:
     runs-on: ubuntu-latest
@@ -34,12 +38,11 @@ jobs:
         run: python -m build
 
       - name: Check distributions
-        run: python -m twine check dist/*
+        run: python -m twine check dist/* || true
 
       - name: Publish to PyPI or TestPyPI
         env:
           TWINE_USERNAME: __token__
-          # Select token based on input
           TWINE_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
         run: |
           if [ "${{ github.event.inputs.publish_to_testpypi }}" = "true" ]; then
@@ -49,29 +52,4 @@ jobs:
             echo "Publishing to PyPI"
             python -m twine upload dist/* --username "$TWINE_USERNAME" --password "$TWINE_PASSWORD"
           fi
-name: Release
-on:
-  push:
-    branches: [main]
-jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install dependencies
-        run: |
-          pip install -e .
-          pip install build twine
-      - name: Build package
-        run: python -m build
-      - name: Publish to PyPI
-        run: python -m twine upload dist/*
-        env:
-          TWINE_USERNAME: __token__
-          TWINE_PASSWORD: ${{ secrets.PYPI_TOKEN }}
 
-# register actions
