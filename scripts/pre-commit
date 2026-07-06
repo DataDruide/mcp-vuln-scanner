@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+"""
+Pre-commit hook for MCP security scanning.
+Prevents commits of tools with critical security issues.
+Install with: python scripts/install-hook.py
+"""
+import sys
+import json
+import subprocess
+from pathlib import Path
+
+def run_scan():
+    """Run security scan on staged tools.json files."""
+    try:
+        # Get staged files
+        result = subprocess.run(
+            ["git", "diff", "--cached", "--name-only"],
+            capture_output=True,
+            text=True,
+            check=True
+        )
+        staged_files = result.stdout.strip().split("\n")
+        
+        # Filter for tools.json files
+        tools_files = [f for f in staged_files if "tools.json" in f or f.endswith(".json")]
+        
+        if not tools_files:
+            return True  # No tools to scan
+        
+        # Run scan on each file
+        for tools_file in tools_files:
+            if not Path(tools_file).exists():
+                continue
+            
+            print(f"🔍 Scanning {tools_file}...")
+            
+            # Run mcp-scan
+            result = subprocess.run(
+                ["mcp-scan", tools_file, "--format", "json", "--secrets", "--fail-level", "high"],
+                capture_output=True,
+                text=True
+            )
+            
+            if result.returncode != 0:
+                print(f"\n❌ Security scan failed for {tools_file}")
+                print(result.stdout)
+                print(result.stderr)
+                return False
+            
+            # Parse output
+            try:
+                report = json.loads(result.stdout) if result.stdout else {}
+                summary = report.get("summary", {})
+                
+                dangerous = summary.get("dangerous_findings", 0)
+                secrets = summary.get("secrets_found", 0)
+                
+                if dangerous > 0 or secrets > 0:
+                    print(f"\n⚠️  Found {dangerous} dangerous operations and {secrets} secrets")
+                    return False
+                
+                print(f"✅ {tools_file} passed security check")
+            except json.JSONDecodeError:
+                print(f"⚠️  Could not parse scan output for {tools_file}")
+        
+        return True
+    
+    except Exception as e:
+        print(f"Error running pre-commit hook: {e}", file=sys.stderr)
+        return False
+
+if __name__ == "__main__":
+    if not run_scan():
+        print("\n🚫 Commit blocked due to security issues.")
+        print("   Fix the issues or use 'git commit --no-verify' to bypass (not recommended)")
+        sys.exit(1)
+    
+    sys.exit(0)
