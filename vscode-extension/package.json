@@ -1,0 +1,76 @@
+{
+  "name": "mcp-security-scanner",
+  "displayName": "MCP Security Scanner",
+  "description": "Security scanner for Model Context Protocol servers",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Security",
+    "Linters"
+  ],
+  "activationEvents": [
+    "onLanguage:json",
+    "onCommand:mcp-scanner.scan"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "mcp-scanner.scan",
+        "title": "MCP Security Scanner: Scan Current File"
+      },
+      {
+        "command": "mcp-scanner.scanWorkspace",
+        "title": "MCP Security Scanner: Scan Workspace"
+      }
+    ],
+    "menus": {
+      "editor/title": [
+        {
+          "command": "mcp-scanner.scan",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "MCP Security Scanner",
+      "properties": {
+        "mcp-scanner.cveApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "NVD API Key (optional)"
+        },
+        "mcp-scanner.severityThreshold": {
+          "type": "string",
+          "enum": [
+            "critical",
+            "high",
+            "medium",
+            "low"
+          ],
+          "default": "medium",
+          "description": "Minimale Severity für Warnungen"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "child_process": "^1.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

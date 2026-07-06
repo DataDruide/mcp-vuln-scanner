@@ -1,0 +1,18 @@
+🔍 MCP Vulnerability Scanner - Scan startet für: /tmp/test.json
+
+📦 Gefunden: 1 Tools
+
+============================================================
+📊 MCP Vulnerability Scanner - Bericht
+============================================================
+
+⚠️ Gefährliche Operationen: 1
+
+  🟡 [MEDIUM] Tool: test
+     Beschreibung: Parameter 'cmd' könnte gefährliche Eingaben akzeptieren
+     Stelle: inputSchema.properties.cmd
+     Lösung: Füge enum/pattern Constraints hinzu
+
+🎭 Tool-Poisoning-Verdacht: 0
+
+============================================================

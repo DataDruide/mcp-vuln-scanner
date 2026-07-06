@@ -1,0 +1,57 @@
+Metadata-Version: 2.4
+Name: mcp-vuln-scanner
+Version: 1.2.0
+Summary: AI-powered MCP vulnerability scanner
+Home-page: https://github.com/DataDruide/mcp-vuln-scanner
+Author: DataDruide
+Author-email: your-email@example.com
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: click>=8.0.0
+Requires-Dist: pyyaml>=6.0
+Requires-Dist: jsonschema>=4.0
+Requires-Dist: requests>=2.28
+Requires-Dist: tomli>=2.0.0
+Requires-Dist: aiohttp>=3.9.0
+Requires-Dist: sseclient>=0.0.27
+Dynamic: author
+Dynamic: author-email
+Dynamic: home-page
+Dynamic: requires-python
+
+# 🔒 MCP Vulnerability Scanner
+
+<div align="center">
+
+![PyPI](https://img.shields.io/pypi/v/mcp-vuln-scanner)
+![Python](https://img.shields.io/pypi/pyversions/mcp-vuln-scanner)
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![GitHub stars](https://img.shields.io/github/stars/DataDruide/mcp-vuln-scanner)
+
+**AI-powered security scanner for MCP (Model Context Protocol) servers with automatic fixes, secret detection, and multi-channel alerts**
+
+[Installation](#installation) • [Quick Start](#quick-start) • [AI Fix](#ai-fix) • [Commands](#commands) • [Pricing](#pricing)
+
+</div>
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🔍 **Dangerous Operations** | Detect command injection, path traversal, SQL injection |
+| 🎭 **Tool Poisoning** | Identify typosquatting, misleading descriptions |
+| 🔑 **Secret Detection** | Find API keys, passwords, tokens in MCP tools |
+| 🤖 **AI-Powered Fixes** | Automatic security fixes with Ollama (free/local), OpenAI, Gemini |
+| 📊 **Multiple Formats** | Console, JSON, HTML (with charts), SARIF (GitHub) |
+| 📢 **Multi-Channel Alerts** | Slack, Discord, Email, Jira |
+| 🌐 **Live Scanning** | Scan running MCP servers via HTTP/SSE |
+| 🔐 **Pro/Enterprise** | Ready-to-use licensing system |
+
+---
+
+## 🚀 Installation
+
+```bash
+pip install mcp-vuln-scanner

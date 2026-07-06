@@ -1,0 +1,35 @@
+{
+  "summary": {
+    "dangerous_findings": 2,
+    "poisoning_findings": 1
+  },
+  "dangerous_operations": [
+    {
+      "tool_name": "read_file",
+      "risk_level": "medium",
+      "category": "dangerous_parameter",
+      "description": "Parameter 'path' könnte gefährliche Eingaben akzeptieren",
+      "location": "inputSchema.properties.path",
+      "remediation": "Füge enum/pattern Constraints hinzu",
+      "cwe_id": null
+    },
+    {
+      "tool_name": "execute_command",
+      "risk_level": "medium",
+      "category": "dangerous_parameter",
+      "description": "Parameter 'command' könnte gefährliche Eingaben akzeptieren",
+      "location": "inputSchema.properties.command",
+      "remediation": "Füge enum/pattern Constraints hinzu",
+      "cwe_id": null
+    }
+  ],
+  "tool_poisoning": [
+    {
+      "tool_name": "database_query",
+      "poisoning_type": "suspicious_parameter",
+      "confidence": 0.5,
+      "description": "Verdächtiger Parameter 'sql' ohne Einschränkungen – könnte für Prompt-Injection genutzt werden",
+      "suggested_alternative": null
+    }
+  ]
+}

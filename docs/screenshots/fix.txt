@@ -1,0 +1,36 @@
+🔍 MCP Vulnerability Scanner - Scan startet für: /tmp/fix.json
+
+📦 Gefunden: 1 Tools
+
+
+🤖 Generiere AI-Fix-Vorschläge...
+
+  🔧 test (medium):
+     To fix the security issue, we need to validate the `cmd` parameter to prevent it from accepting malicious inputs. We can use a regex pattern to ensure that only valid commands are accepted.
+
+Here's an updated version of the input schema properties for the `cmd` parameter:
+
+```json
+{
+  "$schema": "ht...
+
+🔧 Wende Fixes an...
+   ✅ test gefixt
+   💾 Backup gespeichert: /tmp/fix.json.backup
+   💾 Gefixte Datei gespeichert: /tmp/fix.json
+
+✅ 1 Tools wurden automatisch gefixt!
+============================================================
+📊 MCP Vulnerability Scanner - Bericht
+============================================================
+
+⚠️ Gefährliche Operationen: 1
+
+  🟡 [MEDIUM] Tool: test
+     Beschreibung: Parameter 'cmd' könnte gefährliche Eingaben akzeptieren
+     Stelle: inputSchema.properties.cmd
+     Lösung: Füge enum/pattern Constraints hinzu
+
+🎭 Tool-Poisoning-Verdacht: 0
+
+============================================================

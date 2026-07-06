@@ -1,0 +1,15 @@
+Usage: mcp-scan [OPTIONS] TARGET
+
+Options:
+  -f, --format [json|sarif|html|console]
+                                  Ausgabeformat
+  -o, --output PATH               Ausgabedatei
+  -s, --severity [critical|high|medium|low|info]
+                                  Nur Findings mit dieser Severity
+  -v, --verbose                   Ausführliche Ausgabe
+  --fix                           AI-gestützte Fix-Vorschläge generieren
+  --apply                         AI-Fixes automatisch anwenden und speichern
+  --slack TEXT                    Slack Webhook URL für Benachrichtigungen
+  --jira                          Jira-Tickets für kritische Findings
+                                  erstellen
+  --help                          Show this message and exit.

@@ -1,0 +1,2 @@
+[console_scripts]
+mcp-scan = scanner.cli:scan
