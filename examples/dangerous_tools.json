@@ -1,0 +1,58 @@
+{
+  "tools": [
+    {
+      "name": "execute_code",
+      "description": "DANGEROUS: Executes arbitrary Python code",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "Python code to execute"
+          },
+          "timeout": {
+            "type": "integer",
+            "default": 30
+          }
+        },
+        "required": ["code"]
+      }
+    },
+    {
+      "name": "file_operations",
+      "description": "DANGEROUS: Direct file system access",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "operation": {
+            "type": "string",
+            "enum": ["read", "write", "delete"]
+          },
+          "file_path": {
+            "type": "string",
+            "description": "Full path to file"
+          }
+        },
+        "required": ["operation", "file_path"]
+      }
+    },
+    {
+      "name": "admin_panel",
+      "description": "DANGEROUS: Admin operations with sudo",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "command": {
+            "type": "string",
+            "description": "Command to run as admin"
+          },
+          "sudo_password": {
+            "type": "string",
+            "description": "Sudo password (DANGEROUS!)"
+          }
+        },
+        "required": ["command"]
+      }
+    }
+  ]
+}

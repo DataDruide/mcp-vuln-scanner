@@ -1,0 +1,208 @@
+{
+  "threats": [
+    {
+      "id": "TI-2024-001",
+      "name": "Arbitrary Code Execution Tool",
+      "description": "Known MCP tool designed to execute arbitrary Python/shell code with no restrictions",
+      "severity": "critical",
+      "category": "code_execution",
+      "indicators": [
+        "execute_code",
+        "eval_code",
+        "run_command",
+        "exec_arbitrary",
+        "shell_execute"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-01-15",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Block import of this tool",
+        "Review tool sandboxing",
+        "Implement code review process"
+      ],
+      "references": [
+        "https://example.com/advisories/arbitrary-code-exec"
+      ]
+    },
+    {
+      "id": "TI-2024-002",
+      "name": "Credential Theft Tool",
+      "description": "MCP tool that exfiltrates credentials and environment variables",
+      "severity": "critical",
+      "category": "credential_theft",
+      "indicators": [
+        "steal_credentials",
+        "exfiltrate_env",
+        "credential_stealer",
+        "api_key_extractor"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-02-01",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Never expose environment variables to untrusted tools",
+        "Use separate credential stores",
+        "Monitor environment access"
+      ],
+      "references": [
+        "https://example.com/advisories/credential-theft"
+      ]
+    },
+    {
+      "id": "TI-2024-003",
+      "name": "Supply Chain Poisoning Vector",
+      "description": "Tool that injects malicious code into downstream dependencies",
+      "severity": "critical",
+      "category": "supply_chain",
+      "indicators": [
+        "inject_dependency",
+        "poison_package",
+        "malware_injector",
+        "supply_chain_attack"
+      ],
+      "cve_ids": [
+        "CVE-2024-XXXXX"
+      ],
+      "discovered_date": "2024-03-10",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Verify package integrity with checksums",
+        "Use package signing verification",
+        "Scan for known signatures"
+      ],
+      "references": [
+        "https://example.com/advisories/supply-chain-poisoning"
+      ]
+    },
+    {
+      "id": "TI-2024-004",
+      "name": "Privilege Escalation Tool",
+      "description": "MCP tool that escalates privileges without authorization",
+      "severity": "critical",
+      "category": "privilege_escalation",
+      "indicators": [
+        "elevate_privileges",
+        "sudo_bypass",
+        "privilege_escalator",
+        "admin_access_tool"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-04-05",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Run tools with minimal privileges",
+        "Monitor sudo calls",
+        "Implement privilege boundaries"
+      ],
+      "references": [
+        "https://example.com/advisories/privilege-escalation"
+      ]
+    },
+    {
+      "id": "TI-2024-005",
+      "name": "Data Exfiltration Tool",
+      "description": "Tool designed to extract and transmit sensitive data to remote servers",
+      "severity": "critical",
+      "category": "data_exfiltration",
+      "indicators": [
+        "exfiltrate_data",
+        "data_stealer",
+        "remote_exfil",
+        "sensitive_data_export"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-05-12",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Monitor network traffic from tools",
+        "Restrict outbound connections",
+        "Sandbox untrusted tools"
+      ],
+      "references": [
+        "https://example.com/advisories/data-exfiltration"
+      ]
+    },
+    {
+      "id": "TI-2024-006",
+      "name": "Prompt Injection Vulnerability",
+      "description": "Tool with unprotected parameter that allows prompt injection attacks",
+      "severity": "high",
+      "category": "prompt_injection",
+      "indicators": [
+        "prompt_injector",
+        "jailbreak_tool",
+        "unsafe_input_handler",
+        "injection_vector"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-06-01",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Validate all user inputs",
+        "Use input sanitization",
+        "Implement context isolation"
+      ],
+      "references": [
+        "https://example.com/advisories/prompt-injection"
+      ]
+    },
+    {
+      "id": "TI-2024-007",
+      "name": "Deprecated Legacy Tool",
+      "description": "End-of-life tool with known unpatched vulnerabilities",
+      "severity": "high",
+      "category": "deprecated",
+      "indicators": [
+        "deprecated_tool_v1",
+        "legacy_executor",
+        "old_code_runner"
+      ],
+      "cve_ids": [
+        "CVE-2023-12345"
+      ],
+      "discovered_date": "2024-01-01",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Migrate to updated version",
+        "Apply security patches",
+        "Retire if no patch available"
+      ],
+      "references": [
+        "https://example.com/advisories/deprecated-tool"
+      ]
+    },
+    {
+      "id": "TI-2024-008",
+      "name": "Unverified Third-Party Tool",
+      "description": "Tool from untrusted source without security review",
+      "severity": "medium",
+      "category": "unverified",
+      "indicators": [
+        "unverified_tool",
+        "untrusted_source",
+        "no_security_review"
+      ],
+      "cve_ids": [],
+      "discovered_date": "2024-06-15",
+      "last_updated": "2024-07-06",
+      "mitigations": [
+        "Conduct security audit",
+        "Request source code review",
+        "Verify developer identity"
+      ],
+      "references": []
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "last_updated": "2024-07-06",
+    "total_threats": 8,
+    "coverage": {
+      "critical": 5,
+      "high": 2,
+      "medium": 1,
+      "low": 0
+    }
+  }
+}

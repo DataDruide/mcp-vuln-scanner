@@ -1,0 +1,41 @@
+{
+  "tools": [
+    {
+      "name": "get_weather",
+      "description": "Get current weather for a location",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "location": {
+            "type": "string",
+            "description": "City name"
+          },
+          "units": {
+            "type": "string",
+            "enum": ["celsius", "fahrenheit"],
+            "default": "celsius"
+          }
+        },
+        "required": ["location"]
+      }
+    },
+    {
+      "name": "search_web",
+      "description": "Search the web for information",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "Search query"
+          },
+          "max_results": {
+            "type": "integer",
+            "default": 10
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# MCP Security Scanner Configuration
+# Copy to scan.yaml in your project root
+
+# Target to scan (file or directory)
+target: .
+
+# Enable secret detection
+secrets: true
+
+# Output format: text, json, sarif, html
+format: json
+
+# Tool name patterns to exclude
+exclude:
+  - deprecated_*
+  - test_*
+  - internal_*
+
+# AI-powered fix suggestions
+ai_fix: false
+
+# Fail level: critical, high, medium, low
+fail_level: high
+
+# Verbose output
+verbose: 1

@@ -1,0 +1,12 @@
+{
+  "target": ".",
+  "secrets": true,
+  "format": "json",
+  "exclude": [
+    "deprecated_*",
+    "legacy_*",
+    "internal_test_*"
+  ],
+  "ai_fix": false,
+  "fail_level": "high"
+}
