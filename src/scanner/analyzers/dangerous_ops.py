@@ -57,6 +57,39 @@ class DangerousOperationAnalyzer:
             "risk": RiskLevel.MEDIUM,
             "cwe": "CWE-918",
             "remediation": "Whiteliste erlaubte Domains"
+        },
+        "prompt_injection": {
+            "patterns": [
+                r"prompt",
+                r"instruction",
+                r"system prompt",
+                r"ignore previous",
+            ],
+            "risk": RiskLevel.HIGH,
+            "cwe": "CWE-77",
+            "remediation": "Trenne Tool-Input klar vom Kontroll- oder Systemprompt und validiere alle Eingaben"
+        },
+        "privilege_escalation": {
+            "patterns": [
+                r"admin",
+                r"root",
+                r"sudo",
+                r"superuser",
+            ],
+            "risk": RiskLevel.CRITICAL,
+            "cwe": "CWE-250",
+            "remediation": "Reduziere Berechtigungen auf den kleinsten notwendigen Scope"
+        },
+        "tool_delegation": {
+            "patterns": [
+                r"delegate",
+                r"forward",
+                r"proxy",
+                r"route.*tool",
+            ],
+            "risk": RiskLevel.HIGH,
+            "cwe": "CWE-441",
+            "remediation": "Erlaube nur explizite Tool-Fowards mit strenger Zulassung"
         }
     }
 
