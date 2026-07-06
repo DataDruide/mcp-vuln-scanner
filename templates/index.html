@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MCP Security Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 MCP Security Dashboard</h1>
+            <p>Real-time security monitoring for MCP tools</p>
+        </header>
+
+        <main>
+            <!-- Statistics Cards -->
+            <section class="statistics">
+                <div class="stat-card">
+                    <div class="stat-value">{{ stats.total_scans }}</div>
+                    <div class="stat-label">Total Scans</div>
+                </div>
+                <div class="stat-card warning">
+                    <div class="stat-value">{{ stats.total_dangerous_findings }}</div>
+                    <div class="stat-label">Dangerous Findings</div>
+                </div>
+                <div class="stat-card danger">
+                    <div class="stat-value">{{ stats.total_secrets_found }}</div>
+                    <div class="stat-label">Secrets Found</div>
+                </div>
+                <div class="stat-card critical">
+                    <div class="stat-value">{{ stats.total_threats_detected }}</div>
+                    <div class="stat-label">Threats Detected</div>
+                </div>
+            </section>
+
+            <!-- Charts -->
+            <section class="charts">
+                <div class="chart-container">
+                    <h2>Findings by Category</h2>
+                    <canvas id="findingsChart"></canvas>
+                </div>
+                <div class="chart-container">
+                    <h2>Threat Severity Distribution</h2>
+                    <canvas id="threatsChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Recent Scans -->
+            <section class="recent-scans">
+                <h2>Recent Scans</h2>
+                <div id="scans-list" class="scans-list">
+                    <p class="loading">Loading scans...</p>
+                </div>
+            </section>
+
+            <!-- Active Threats -->
+            <section class="threats-list">
+                <h2>Active Threats</h2>
+                <div id="threats-list-content" class="threats-content">
+                    <p class="loading">Loading threats...</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>MCP Security Scanner • Dashboard v1.0 • 
+            <a href="https://github.com/DataDruide/mcp-vuln-scanner">GitHub</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='dashboard.js') }}"></script>
+</body>
+</html>

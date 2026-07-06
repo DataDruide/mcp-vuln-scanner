@@ -89,6 +89,8 @@ The hook will automatically:
 - **[Installation Guide](docs/INSTALLATION.md)** - Setup and configuration
 - **[Usage Guide](docs/USAGE.md)** - Common use cases and examples
 - **[CLI Reference](docs/CLI-REFERENCE.md)** - Complete command reference
+- **[Threat Intelligence](docs/THREAT-INTELLIGENCE.md)** - Known threats database
+- **[Web Dashboard](docs/DASHBOARD.md)** - Real-time monitoring interface
 - **[Examples](examples/)** - Practical examples and templates
 - **[Contributing Guide](CONTRIBUTING.md)** - Development guidelines
 

@@ -18,7 +18,8 @@ setup(
         "requests>=2.28",
         "tomli>=2.0.0",
         "aiohttp>=3.9.0",
-        "sseclient>=0.0.27"
+        "sseclient>=0.0.27",
+        "flask>=2.3.0"
     ],
     entry_points={
         "console_scripts": [
